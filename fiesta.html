@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contador de Cumpleaños</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background: url('https://example.com/tu-imagen-de-fondo.jpg') center/cover; /* Cambia la URL por la imagen de fondo que desees */
+      background-color: #331c4d; /* Fondo más oscuro */
+      overflow: hidden; /* Oculta cualquier contenido que sobresalga del cuerpo */
+    }
+
+    #mensaje {
+      font-size: 1.5em;
+      text-align: center;
+      color: #fff; /* Color del texto */
+      margin-bottom: 20px;
+      display: none;
+    }
+
+    #contador {
+      font-size: 2em;
+      text-align: center;
+      color: #fff; /* Color del texto */
+      background-color: rgba(255, 0, 0, 0.8); /* Fondo rojo semitransparente */
+      padding: 20px;
+      border-radius: 10px;
+      animation: bounce 1s infinite; /* Agrega una animación al contador */
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-20px);
+      }
+      60% {
+        transform: translateY(-10px);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<script>
+  function mostrarMensaje(mensaje) {
+    alert(mensaje);
+  }
+
+  // Ventanas emergentes
+  setTimeout(function() {
+    mostrarMensaje("Hola Amor de mi vida 🤍");
+  }, 1000);
+
+  setTimeout(function() {
+    mostrarMensaje("Hice esta página como contador para lo que falta para tu cumpleaños jajaja");
+  }, 3000);
+
+  setTimeout(function() {
+    mostrarMensaje("🤍 Quiero que sepas lo importante que eres para mí 🤍");
+  }, 5000);
+
+  setTimeout(function() {
+    mostrarMensaje("Así que me tomé el tiempo de hacer esto");
+  }, 7000);
+
+  setTimeout(function() {
+    mostrarMensaje("Obviamente se ve super básico pero bueno 🙃");
+  }, 9000);
+
+  setTimeout(function() {
+    mostrarMensaje("Esta es una mini pista, por así decirlo jajaja");
+  }, 11000);
+
+  setTimeout(function() {
+    mostrarMensaje("No te imaginas lo enamorado que estoy de ti");
+  }, 13000);
+
+  setTimeout(function() {
+    mostrarMensaje("Así que creé este contador para que ya pronto sepas cómo se viene tu cumpleaños, que obviamente es muy especial 😻");
+  }, 15000);
+
+  setTimeout(function() {
+    mostrarMensaje("Probablemente sea una de las cosas más cursis que he hecho jajaja");
+  }, 17000);
+
+  setTimeout(function() {
+    mostrarMensaje("Pero lo vale porque TE AMO MY ROOMIE 🤍, FELIZ PRONTO CUMPLEAÑOS");
+  }, 19000);
+
+  setTimeout(function() {
+    document.getElementById("mensaje").style.display = "block";
+  }, 21000);
+
+  // Establecer la fecha límite (12 de diciembre)
+  var fechaLimite = new Date("2023-12-12T00:00:00Z").getTime();
+
+  // Actualizar el contador cada segundo después de mostrar las ventanas emergentes
+  setTimeout(function() {
+    var x = setInterval(function() {
+      // Obtener la fecha y hora actual
+      var fechaActual = new Date().getTime();
+
+      // Calcular la diferencia en milisegundos entre la fecha límite y la actual
+      var diferencia = fechaLimite - fechaActual;
+
+      // Calcular días, horas, minutos y segundos
+      var dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+      var horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+      var segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+      // Mostrar el contador en el elemento con id "contador"
+      document.getElementById("contador").innerHTML = dias + "d " + horas + "h " + minutos + "m " + segundos + "s ";
+
+      // Si la cuenta regresiva ha terminado, mostrar un mensaje
+      if (diferencia < 0) {
+        clearInterval(x);
+        document.getElementById("mensaje").innerHTML = "TU CUMPLEAÑOS, TE AMO 🤍";
+        document.getElementById("contador").innerHTML = "¡Feliz Cumpleaños! 🎉";
+        document.getElementById("contador").style.animation = "none"; // Detener la animación al llegar a cero
+      }
+    }, 1000); // Actualizar cada segundo después de las ventanas emergentes
+  }, 21000); // Espera 21 segundos antes de iniciar el contador
+</script>
+
+<div id="mensaje">Espera un momento... 🤍</div>
+<div id="contador"></div>
+
+</body>
+</html>
+
